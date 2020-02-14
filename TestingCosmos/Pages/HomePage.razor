@@ -1,0 +1,31 @@
+﻿@page "/home"
+@using controllers
+@using TestingCosmos.models
+@using Microsoft.Extensions.Configuration
+@using TestingCosmos.Data
+@inject ProcessHomeData processHomeData
+
+
+<h3>
+    (Parent:ChildOne) @homeData.ParentChildOne
+</h3>
+<h3>
+    (Parent:ChildTwo) @homeData.ParentChildTwo
+</h3>
+
+
+@code {
+
+    private HomeData homeData;
+
+     protected override async Task OnInitializedAsync()
+     {
+        homeData = await processHomeData.GetHomeData();
+
+     }
+
+}
+
+
+
+
